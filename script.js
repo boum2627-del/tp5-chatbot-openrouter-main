@@ -1,10 +1,19 @@
 document.getElementById("send-btn").addEventListener("click", sendMessage);
 
-// ENTER key support (corrected)
 document.getElementById("user-input").addEventListener("keydown", function(e) {
     if (e.key === "Enter") {
         e.preventDefault();
         sendMessage();
+    }
+});
+
+document.getElementById("theme-toggle").addEventListener("click", function() {
+    document.body.classList.toggle("dark-mode");
+
+    if (document.body.classList.contains("dark-mode")) {
+        this.textContent = "☀️ Mode Clair";
+    } else {
+        this.textContent = "🌙 Mode Sombre";
     }
 });
 
