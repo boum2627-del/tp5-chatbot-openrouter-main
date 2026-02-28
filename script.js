@@ -1,8 +1,9 @@
 document.getElementById("send-btn").addEventListener("click", sendMessage);
 
-// ENTER key support
-document.getElementById("user-input").addEventListener("keypress", function(e) {
+// ENTER key support (corrected)
+document.getElementById("user-input").addEventListener("keydown", function(e) {
     if (e.key === "Enter") {
+        e.preventDefault();
         sendMessage();
     }
 });
@@ -25,7 +26,7 @@ function playSound() {
 async function sendMessage() {
 
     const input = document.getElementById('user-input');
-    const message = input.value;
+    const message = input.value.trim();
 
     if (!message) return;
 
@@ -34,11 +35,13 @@ async function sendMessage() {
 
     input.value = '';
 
-    // Typing animation
+    const chatBox = document.getElementById("chat-box");
+
     const typingDiv = document.createElement("div");
     typingDiv.classList.add("message", "bot");
     typingDiv.innerHTML = "IA est en train d'écrire...";
-    document.getElementById("chat-box").appendChild(typingDiv);
+    chatBox.appendChild(typingDiv);
+    chatBox.scrollTop = chatBox.scrollHeight;
 
     try {
         const response = await fetch("https://official-joke-api.appspot.com/random_joke");
