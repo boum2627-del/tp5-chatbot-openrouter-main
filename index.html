@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>Mon Chatbot OpenRouter</title>
+    <style>
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f6f9;
+    padding: 30px;
+}
+
+#chat-box {
+    background: white;
+    padding: 15px;
+    height: 300px;
+    overflow-y: auto;
+    border-radius: 10px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    margin-bottom: 10px;
+}
+
+input {
+    padding: 8px;
+    width: 70%;
+}
+
+button {
+    padding: 8px 15px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+</style>
+</head>
+<body>
+    <h2>Chatbot Intelligent – TP Web API</h2>
+<p>Ce chatbot utilise une API publique via Fetch pour générer des réponses dynamiques.</p>
+
+    <div id="chat-box"></div>
+
+    <input type="text" id="user-input" placeholder="Posez votre question...">
+   <button id="send-btn">Envoyer</button>
+
+    <script src="script.js"></script>
+</body>
+</html>
